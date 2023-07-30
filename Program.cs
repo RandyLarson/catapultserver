@@ -7,7 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<cat_a_pult_server.HighScores>(new cat_a_pult_server.HighScores());
+builder.Services.AddSingleton<cat_a_pult_server.HighScores>(cat_a_pult_server.Persistence.LoadHighScores());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

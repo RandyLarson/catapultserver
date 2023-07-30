@@ -42,6 +42,7 @@ public class HighScoreController : ControllerBase
     public HighScores Add(GameScore score)
     {
         Scoresheet.Scores.Add(score);
+        Persistence.SaveHighScores(Scoresheet);
         return Get();
     }
 
@@ -49,6 +50,8 @@ public class HighScoreController : ControllerBase
     public HighScores Delete()
     {
         Scoresheet.Scores.Clear();
+        Persistence.SaveHighScores(Scoresheet);
         return Get();
     }
+
 }
