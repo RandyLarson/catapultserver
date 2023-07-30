@@ -31,7 +31,7 @@ public class HighScoreController : ControllerBase
                 Scores = Scoresheet.Scores.ToList()
             };
         }
-        
+
         return new HighScores
         {
             Scores = Scoresheet.Scores.OrderByDescending(m => m.Score).Take(10).ToList()
@@ -42,6 +42,13 @@ public class HighScoreController : ControllerBase
     public HighScores Add(GameScore score)
     {
         Scoresheet.Scores.Add(score);
+        return Get();
+    }
+
+    [HttpDelete(Name="Clear")]
+    public HighScores Delete()
+    {
+        Scoresheet.Scores.Clear();
         return Get();
     }
 }
