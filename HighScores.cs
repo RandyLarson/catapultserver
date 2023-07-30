@@ -13,7 +13,7 @@ public class GameScore
 
 public class Persistence
 {
-    static public string DataPath = "./data/highscores.json";
+    static public string DataPath = "/catapultdata/highscores.json";
     static public HighScores LoadHighScores()
     {
         try
